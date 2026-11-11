@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}Account overview{% endblock %}{% block content %}
+<section class="pagehero compact"><div class="wrap"><div class="eyebrow">YOUR CLEARBANK</div><h1>Hello, {{ display_username }}.</h1><p>Account holder: {{ user.full_name }}. Here's your account at a glance.</p></div></section>
+<div class="wrap dash"><div class="balance"><div><span class="label">AVAILABLE BALANCE</span><div class="amount">${{ "%.2f"|format(user.balance) }}</div><span class="account">Everyday account · {{ user.account_no }}</span></div><div class="balance-mark">CB</div></div>
+<div class="sectionhead"><div><div class="eyebrow">ACCOUNT ACTIVITY</div><h2>Recent transactions</h2></div><a class="textlink" href="{{ url_for('search') }}">Search activity →</a></div>
+<div class="tablecard"><table><thead><tr><th>DESCRIPTION</th><th>DATE</th><th>AMOUNT</th></tr></thead><tbody>{% for t in transactions %}<tr><td><span class="txnicon">↗</span>{{ t.description }}</td><td>{{ t.txn_date }}</td><td class="{{ 'positive' if t.amount > 0 else '' }}">{{ "+" if t.amount > 0 else "" }}${{ "%.2f"|format(t.amount) }}</td></tr>{% endfor %}</tbody></table></div>
+</div>{% endblock %}

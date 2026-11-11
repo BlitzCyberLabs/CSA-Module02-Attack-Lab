@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block title %}Log in{% endblock %}{% block content %}
+<section class="pagehero"><div class="wrap"><div class="eyebrow">ONLINE BANKING</div><h1>Welcome back.</h1><p>Log in to your ClearBank account.</p></div></section>
+<div class="wrap form-layout"><div class="formcard"><h2>Log in to online banking</h2><p class="muted">Enter your account details below.</p>
+<form method="post"><label>Username</label><input name="username" autocomplete="username" placeholder="Enter your username" required>
+<label>Password</label><input name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+<button class="button primary full" type="submit">Continue <span>→</span></button></form>
+<p class="register-prompt">New to ClearBank? <a href="{{ url_for('register') }}">Register a new account</a></p>
+<div class="demo-hint"><b>Sample account access</b><span>admin / Admin@123</span><span>demo / Demo@123</span><span>j.smith / Welcome@123</span><span>m.taylor / Banking@123</span><span>support / Support@123</span><span>analyst / Analyst@123</span></div>
+</div><aside class="sideinfo"><div class="sideicon">⌑</div><h3>Banking, with clarity.</h3><p>This demonstration account uses fictional information and has no connection to a real financial institution.</p></aside></div>
+{% endblock %}

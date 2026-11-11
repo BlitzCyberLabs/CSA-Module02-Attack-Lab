@@ -1,0 +1,14 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}ClearBank{% endblock %} | ClearBank</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body>
+<div class="topline"><div class="wrap topinner"><span>Personal Banking</span><span>Secure online access <b class="secure-dot"></b></span></div></div>
+<header class="header"><div class="wrap nav">
+<a class="brand" href="{{ url_for('home') }}"><span class="brandmark">C</span><span>clear<span class="brandlight">bank</span><small>Banking made clearer.</small></span></a>
+<nav><form class="nav-search" action="{{ url_for('search') }}" method="get"><input name="term" placeholder="Search transactions" aria-label="Search transactions"><button type="submit" aria-label="Search">⌕</button></form><a href="{{ url_for('home') }}">Home</a><a href="{{ url_for('search') }}">Transactions</a><a href="{{ url_for('feedback') }}">Support</a>
+{% if session.get('user_id') %}<a class="navbutton" href="{{ url_for('dashboard') }}">My account</a><a href="{{ url_for('logout') }}">Sign out</a>{% else %}<a href="{{ url_for('register') }}">Register</a><a class="navbutton" href="{{ url_for('login') }}">Log in</a>{% endif %}</nav>
+</div></header>
+<main>{% with messages=get_flashed_messages(with_categories=true) %}{% if messages %}<div class="wrap">{% for category,message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}</div>{% endif %}{% endwith %}
+{% block content %}{% endblock %}</main>
+<footer><div class="wrap foot"><div class="brand footerbrand"><span class="brandmark">C</span><span>clear<span class="brandlight">bank</span><small>Banking made clearer.</small></span></div><div><b>ClearBank Demo</b><p>Training environment · Dummy data only</p></div><div class="footnote">This is a fictional training website. No real banking services are provided.</div></div></footer>
+</body></html>

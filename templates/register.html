@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block title %}Register{% endblock %}{% block content %}
+<section class="pagehero"><div class="wrap"><div class="eyebrow">ONLINE BANKING</div><h1>Create your account.</h1><p>Register for ClearBank online access.</p></div></section>
+<div class="wrap form-layout"><div class="formcard"><h2>Register</h2>
+<form method="post">
+<label>Username</label><input name="username" maxlength="40" autocomplete="username" placeholder="Choose a username" required>
+<label>Password</label><input name="password" type="password" autocomplete="new-password" placeholder="Choose a password" required>
+<button class="button primary full" type="submit">Register <span>→</span></button>
+</form><p class="register-prompt">Already have an account? <a href="{{ url_for('login') }}">Log in</a></p>
+</div><aside class="sideinfo"><div class="sideicon">⌑</div><h3>Welcome to ClearBank.</h3><p>Use fictional credentials only. This is a local training application.</p></aside></div>
+{% endblock %}
